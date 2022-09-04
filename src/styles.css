@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+.mt-5{
+    margin-top: 10px;
+}
+.mt-10{
+    margin-top: 10px;
+}
+.card{
+    border:none;
+    width: 500px;
+    padding: 60px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: 50%;
+    bottom: 50%;
+}
