@@ -14,19 +14,18 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      email :[''],
-      password : ['']
+      email   : [''],
+      password: ['']
     })
   }
 
   login(){
 this.http.post<any>("http://localhost:3000/api/auth/login",  this.loginForm.value)
 .subscribe(res => {
-  if(res.success){
-    console.log(res);
-    alert("Logged In Success")
+  if (res.success) {
+    localStorage.setItem('token', res.data.token);
     this.loginForm.reset();
-  //  this.router.navigate(['posts']);
+    this.router.navigate(['user-profile']);
     } else {
     alert(res.message)
   }

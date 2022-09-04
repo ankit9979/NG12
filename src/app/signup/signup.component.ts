@@ -25,17 +25,16 @@ export class SignupComponent implements OnInit {
 
   }
 
-  signup(){
-this.http.post<any>("http://localhost:3000/api/auth/register", this.signupForm.value)
-.subscribe((res) =>{
-  alert('Signed Up');
-  this.signupForm.reset();
-  this.router.navigate(['login']);
-},
-(err) => {
-  if (err.error) alert(err.error.message)
-}
-)
-  }
+  signup() {
+    this.http.post<any>('http://localhost:3000/api/auth/register', this.signupForm.value)
+    .subscribe((res) => {
+        alert('Signed Up');
+        this.signupForm.reset();
+        this.router.navigate(['login']);
+      },
+      (err) => {
+        if (err.error) alert(err.error.message)
+      })
+    }
 
-}
+  }

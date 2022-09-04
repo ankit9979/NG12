@@ -1,1 +1,34 @@
-<p>posts works!</p>
+<div class="container pad-top">
+    <!-- No data message -->
+    <p *ngIf="Posts.length <= 0" class="no-data text-center">There is no Posts added yet!</p>
+    <!-- Post list -->
+    <table class="table table-bordered" *ngIf="Posts.length > 0">
+      <thead class="table-success">
+        <tr>
+          
+          <th scope="col">Title</th>
+          <th scope="col">Image</th>
+          <th scope="col center">Edit</th>
+          <th scope="col center">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let post of Posts; let i = index">
+        
+          <td>{{post.description}}</td>
+          <td><img width="200" src="http://localhost:3000/{{post.img}}"></td>
+          <td class="text-center edit-block">
+            <span class="edit" [routerLink]="['/edit-posts/', post._id]">
+              <button type="button" class="btn btn-success btn-sm">Edit</button>
+            </span>
+          
+          </td>
+          <td> <span class="delete" (click)="removePost(post, i)">
+            <button type="button" class="btn btn-danger btn-sm">Delete</button>
+          </span> 
+        </td>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
