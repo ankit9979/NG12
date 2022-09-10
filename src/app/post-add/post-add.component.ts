@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-post-add',
@@ -17,7 +18,7 @@ export class PostAddComponent implements OnInit {
   preview = ''
   submitted = false;
   public postForm !: FormGroup;
-  constructor(private formBuilder : FormBuilder,
+  constructor(private formBuilder : FormBuilder, private toastrService: ToastrService,
     private http : HttpClient, private router : Router) { }
     fileName =''
   ngOnInit(): void {
@@ -28,11 +29,12 @@ export class PostAddComponent implements OnInit {
         post_img:[null],
       }
     )
-
   }
+
   get myForm() {
     return this.postForm.controls;
   }
+
   onFileSelected(event:any){
     const file = (event.target).files[0];
     this.postForm.patchValue({
@@ -44,22 +46,22 @@ export class PostAddComponent implements OnInit {
       this.preview = reader.result as string;
     };
     reader.readAsDataURL(file);
-}
+  }
+
   onSubmit() {
-console.log(this.postForm.value.description);
 
-var formData: any = new FormData();
-  formData.append('description', this.postForm.value.description);
-  formData.append('post_img', this.postForm.value.post_img);
+  var formData: any = new FormData();
+      formData.append('description', this.postForm.value.description);
+      formData.append('post_img', this.postForm.value.post_img);
 
-    this.http.post<any>(this.baseURL+'/posts/add', formData)
-    .subscribe((res) => {
-        alert('Post Added');
-        this.postForm.reset();
-        this.router.navigate(['posts']);
-      },
-      (err) => {
-        if (err.error) alert(err.error.message)
-      })
+      this.http.post<any>(this.baseURL+'/posts/add', formData)
+      .subscribe((res) => {
+          this.toastrService.success('Success!', 'Post Added');
+          this.postForm.reset();
+          this.router.navigate(['posts']);
+        },
+        (err) => {
+          if (err.error)this.toastrService.success('Success!', err.error.message);
+        })
     }
 }

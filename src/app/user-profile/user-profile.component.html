@@ -1,14 +1,16 @@
-
-
 <div class="container">
     <div class="row">
         <div class="col-md-6">
             <div class="card">
-        <div class="inner-main">
-        <h2 class="mb-4">User Profile</h2>
-        <p><strong>Name:</strong> {{ this.currentUser.name }}</p>
-        <p><strong>Email:</strong> {{ this.currentUser.email }}</p>
+                <div class="inner-main">
+                    <h2 class="mb-4">User Profile</h2>
+                    <p><strong>Name:</strong> {{ this.currentUser.name }}</p>
+                    <p><strong>Email:</strong> {{ this.currentUser.email }}</p>
+                    <p><strong>Profile Pic:</strong> <img style="margin-left:20px; padding: 5px; border:  1px solid #ccc;"
+                        src="http://localhost:3000/{{ this.currentUser.profilePicture }}" width="150"></p>
+                        <p><a (click)="update()" style="cursor: pointer; color:blue" class="mt-5">Edit Profile</a></p>
+                </div> 
+            </div>
         </div>
-    </div> </div>
     </div>
 </div>

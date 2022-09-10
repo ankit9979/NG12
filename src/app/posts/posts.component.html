@@ -18,7 +18,7 @@
           <td>{{post.description}}</td>
           <td><img width="200" src="http://localhost:3000/{{post.img}}"></td>
           <td class="text-center edit-block">
-            <span class="edit" [routerLink]="['/edit-posts/', post._id]">
+            <span class="edit" [routerLink]="['edit-post/', post._id]">
               <button type="button" class="btn btn-success btn-sm">Edit</button>
             </span>
           

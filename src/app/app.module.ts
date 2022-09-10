@@ -9,6 +9,10 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { PostsComponent } from './posts/posts.component';
 import { PostAddComponent } from './post-add/post-add.component';
+import { UserProfileEditComponent } from './user-profile-edit/user-profile-edit.component';
+import { PostEditComponent } from './post-edit/post-edit.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -16,10 +20,18 @@ import { PostAddComponent } from './post-add/post-add.component';
     LoginComponent,
     SignupComponent,
     PostsComponent,
-    PostAddComponent
+    PostAddComponent,
+    UserProfileEditComponent,
+    PostEditComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 150000, // 15 seconds
+      closeButton: true,
+      progressBar: true,
+    }),
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
