@@ -33,26 +33,26 @@ export class PostEditComponent implements OnInit {
   }
 
 
-getPost(id:any){
+getPost(id:any) {
   this.http.get<any>(this.baseURL+'/posts/view/'+id)
   .subscribe(
     (res) => {
       this.postForm.setValue({
       description: res.data['description'],upload:'',post_img:''
     });},
-    (err) => {if (err.error) this.toastrService.error('Error!', err.error.message); }
+    (err) => { if (err.error) this.toastrService.error('Error!', err.error.message); }
   )
 }
   get myForm() {
     return this.postForm.controls;
   }
 
-  onFileSelected(event:any){
+  onFileSelected(event:any) {
     const file = (event.target).files[0];
     this.postForm.patchValue({
       post_img: file,
     });
-    // File Preview
+
     const reader = new FileReader();
     reader.onload = () => {
       this.preview = reader.result as string;
@@ -66,7 +66,7 @@ getPost(id:any){
         formData.append('description', this.postForm.value.description);
         formData.append('post_img', this.postForm.value.post_img);
 
-        this.http.put<any>(this.baseURL+'/posts/update/'+id, formData)
+        this.http.put<any>(this.baseURL + '/posts/update/' + id, formData)
         .subscribe((res) => {
           this.toastrService.success('Success!', "Post Updated");
             this.postForm.reset();

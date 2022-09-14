@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 
 export class UserProfileComponent implements OnInit {
     currentUser: any = {};
-  
+
     constructor(
         public authService: AuthService,
         private router : Router,
@@ -20,8 +20,7 @@ export class UserProfileComponent implements OnInit {
         });
     }
 
-    
-  update(){
+  update() {
     this.router.navigate(['edit-profile']);
   }
 

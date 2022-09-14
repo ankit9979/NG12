@@ -8,6 +8,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { PostAddComponent } from './post-add/post-add.component';
 import { UserProfileEditComponent } from './user-profile-edit/user-profile-edit.component';
 import { PostEditComponent } from './post-edit/post-edit.component';
+import { TimelineComponent } from './timeline/timeline.component';
+
 const routes: Routes = [
     {path:'', redirectTo:'login', pathMatch:'full'},
     {path:'login', component : LoginComponent},
@@ -16,6 +18,7 @@ const routes: Routes = [
     {path: 'edit-profile', component: UserProfileEditComponent, canActivate: [AuthGuard]},
     {path: 'create-post', component: PostAddComponent, canActivate: [AuthGuard]},
     {path:'posts', component : PostsComponent, canActivate: [AuthGuard]},
+    {path:'timeline', component : TimelineComponent, canActivate: [AuthGuard]},
     {path:'posts/edit-post/:id', component : PostEditComponent, canActivate: [AuthGuard]},
 ];
 

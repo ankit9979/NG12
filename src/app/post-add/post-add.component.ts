@@ -8,8 +8,7 @@ import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-post-add',
-  templateUrl: './post-add.component.html',
-  styleUrls: ['./post-add.component.css']
+  templateUrl: './post-add.component.html'
 })
 
 export class PostAddComponent implements OnInit {
@@ -61,7 +60,7 @@ export class PostAddComponent implements OnInit {
           this.router.navigate(['posts']);
         },
         (err) => {
-          if (err.error)this.toastrService.success('Success!', err.error.message);
+          if (err.error)this.toastrService.error('Error!', err.error.message);
         })
     }
 }

@@ -1,12 +1,11 @@
-<div
-  class="d-flex flex-column mb-5 flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm fixed-top"
->
+<div class="d-flex flex-column mb-5 flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm fixed-top">
   <h5 class="my-0 mr-md-auto font-weight-normal">Social App</h5>
   <nav class="my-2 my-md-0 mr-md-3">
-
+    <a *ngIf="this.authService.isLoggedIn" routerLinkActive="active" class="p-2" routerLink="/timeline">Timeline</a>
     <a *ngIf="this.authService.isLoggedIn" routerLinkActive="active" class="p-2" routerLink="/posts">Posts</a>
     <a *ngIf="this.authService.isLoggedIn" routerLinkActive="active" class="p-2" routerLink="/create-post">Create New Post</a>
     <a *ngIf="this.authService.isLoggedIn" routerLinkActive="active"  routerLink="/user-profile" class="p-2 ">User Profile</a>
+
     <a
       *ngIf="!this.authService.isLoggedIn"
       class="btn btn-outline-primary"

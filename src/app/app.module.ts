@@ -13,6 +13,7 @@ import { UserProfileEditComponent } from './user-profile-edit/user-profile-edit.
 import { PostEditComponent } from './post-edit/post-edit.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { TimelineComponent } from './timeline/timeline.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ToastrModule } from 'ngx-toastr';
     PostsComponent,
     PostAddComponent,
     UserProfileEditComponent,
-    PostEditComponent
+    PostEditComponent,
+    TimelineComponent
   ],
   imports: [
     BrowserModule,

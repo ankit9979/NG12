@@ -33,7 +33,8 @@ export class SignupComponent implements OnInit {
         this.router.navigate(['login']);
       },
       (err) => {
-        if (err.error) this.toastrService.error('Error!', err.error.message);
+        if (err.error.message) this.toastrService.error('Error!', err.error.message);
+        if (err.error.errors) this.toastrService.error('Error!', err.error.errors[0].msg);
       })
     }
 

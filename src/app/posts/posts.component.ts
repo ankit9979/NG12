@@ -6,8 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-posts',
-  templateUrl: './posts.component.html',
-  styleUrls: ['./posts.component.css']
+  templateUrl: './posts.component.html'
 })
 
 export class PostsComponent implements OnInit {
@@ -15,7 +14,7 @@ export class PostsComponent implements OnInit {
   public postForm !: FormGroup;
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   Posts:any = [];
-  constructor(private formBuilder : FormBuilder,private toastrService: ToastrService,
+  constructor(private formBuilder : FormBuilder, private toastrService: ToastrService,
     private http : HttpClient, private router : Router) { }
 
   ngOnInit(): void {
