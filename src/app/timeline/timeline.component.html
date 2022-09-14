@@ -252,10 +252,10 @@
           <article *ngFor="let post of Posts; let i = index" class="post">
             <div class="post__header">
               <div class="post__profile">
-                <a href="#" target="_blank" class="post__avatar">
-                  <img src="assets/default-user.png" alt="User Picture" />
+                <a href="#" class="post__avatar">
+                  <img src="http://localhost:3000/{{post.userId.profilePicture}}" alt="User Picture" />
                 </a>
-                <a href="#" target="_blank"class="post__user">leocosta1</a>
+                <a href="#" class="post__user">{{post.userId.firstname}} {{post.userId.lastname}}</a>
               </div>
             </div>
 
